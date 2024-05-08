@@ -5,7 +5,7 @@ cartoon = ["doremon","pokemon","hagemaru","ultr b","ninja hattori","shinchan","p
            ,"oggy and the cockroaches","ben 10","chhota bheem","mighty raju"]
 
 # Choose a random Cartoon from the list
-cartoon_to_guess = random.choice(movies)
+cartoon_to_guess = random.choice(cartoon)
 word_length = len(cartoon_to_guess)
 display = ['_'] * word_length
 guessed_letters = []
