@@ -1,22 +1,22 @@
 import random
 
 # List of Cartoon Name
-cartoon = ["doremon","pokemon","hagemaru","ultr b","ninja hattori","shinchan","pakdam pakdai"
-           ,"oggy and the cockroaches","ben 10","chhota bheem","mighty raju"]
+cartoon = ["doremon", "pokemon", "hagemaru", "ultr b", "ninja hattori", "shinchan", "pakdam pakdai",
+           "oggy and the cockroaches", "ben", "chhota bheem", "mighty raju"]
 
 # Choose a random Cartoon from the list
-cartoon_to_guess = random.choice(cartoon)
+cartoon_to_guess = random.choice(cartoon).upper()
 word_length = len(cartoon_to_guess)
-display = ['_'] * word_length
+display = ['_' if letter != ' ' else ' ' for letter in cartoon_to_guess]
 guessed_letters = []
 remaining_lives = 6
 
-print("Welcome to Hangman Game! Let's play with Cartoon!.")
+print("Welcome to Hangman Game! Let's play with Cartoons.")
 print(f"The cartoon title has {word_length} letters.")
 
 while True:
     print(f"\nLives remaining: {remaining_lives}")
-    print(' '.join(display))
+    print(''.join(display))
 
     if '_' not in display:
         print(f"Congratulations! You guessed the cartoon '{cartoon_to_guess}'.")
@@ -38,8 +38,8 @@ while True:
 
     guessed_letters.append(guess)
 
-    if guess in cartoon_to_guess.upper():
-        indices = [i for i, letter in enumerate(cartoon_to_guess.upper()) if letter == guess]
+    if guess in cartoon_to_guess:
+        indices = [i for i, letter in enumerate(cartoon_to_guess) if letter == guess]
         for index in indices:
             display[index] = cartoon_to_guess[index]
     else:
